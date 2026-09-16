@@ -1,0 +1,20 @@
+        .popup-login {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            width: 250px;
+        }
+        .popup-login.active {
+            display: block;
+        }
+
+
+
+        
+ 

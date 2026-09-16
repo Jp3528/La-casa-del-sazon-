@@ -1,0 +1,10 @@
+.env
+.env.*
+*.log
+Thumbs.db
+.DS_Store
+/vendor/
+/node_modules/
+/restaurante.sql
+/database.sql
+/dump.sql
