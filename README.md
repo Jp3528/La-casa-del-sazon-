@@ -1,8 +1,10 @@
 # La Casa del Sazon
 
+![Vista previa de La Casa del Sazon](docs/preview.jpg)
+
 Sistema web PHP para restaurante con catalogo de platillos, registro e inicio de sesion de clientes, carrito, pedidos, panel de administracion y rastreo de repartidores.
 
-## Funciones
+## Funcionalidades
 
 - Inicio con platillos destacados.
 - Menu con buscador.
@@ -11,6 +13,13 @@ Sistema web PHP para restaurante con catalogo de platillos, registro e inicio de
 - Panel de administracion de pedidos.
 - Rastreo de repartidores con Leaflet y OpenStreetMap, sin API key.
 - Simulador de ubicacion de repartidores.
+
+## Stack
+
+- PHP
+- MySQL/MariaDB
+- HTML, CSS y JavaScript
+- Leaflet con OpenStreetMap para rastreo
 
 ## Requisitos
 
@@ -71,6 +80,12 @@ Clave: Cliente12345
 - Panel admin demo: `/admin_pedidos.php`
 - Simulador de repartidores: `/test_ubicacion_repartidor.html`
 
-## Nota de seguridad
+## Calidad y seguridad
 
-El panel de administracion es una vista demo y no debe exponerse en produccion sin autenticacion de administrador.
+- La base incluida es una semilla de demostracion.
+- No se requieren API keys para el mapa.
+- El panel de administracion es una vista demo y no debe exponerse en produccion sin autenticacion de administrador.
+
+## Enfoque de portafolio
+
+El repositorio demuestra flujo completo de restaurante: catalogo, autenticacion, carrito, pedidos y rastreo. Para una version productiva se recomienda agregar autenticacion de administrador, roles, validaciones centralizadas y despliegue en un hosting con soporte PHP/MySQL.
