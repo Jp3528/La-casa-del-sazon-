@@ -11,7 +11,7 @@ header('Content-Type: application/json');
 $response = ['success' => false, 'message' => ''];
 
 // Verifica si la conexión a la base de datos es exitosa
-if ($conn === null) {
+if (!db_disponible()) {
     $response['message'] = 'Error de conexión a la base de datos.';
     echo json_encode($response);
     exit();

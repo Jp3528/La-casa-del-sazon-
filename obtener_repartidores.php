@@ -9,7 +9,7 @@ $response = [
     "message" => ""
 ];
 
-if ($conn->connect_error) {
+if (!db_disponible()) {
     $response["message"] = "Error de conexion a la base de datos.";
     echo json_encode($response);
     exit();

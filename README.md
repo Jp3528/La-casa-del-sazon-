@@ -50,6 +50,21 @@ DB_NAME=restaurante
 
 Tambien puedes definir esas variables de entorno si tu instalacion usa otros datos.
 
+## Despliegue en Vercel
+
+El proyecto incluye `vercel.json` y `api/index.php` para ejecutar PHP como funcion serverless en Vercel.
+
+Vercel no incluye MySQL local. Para usar login, registro, pedidos, panel de administracion y rastreo debes conectar una base de datos externa compatible con MySQL y crear estas variables en Vercel:
+
+```txt
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+```
+
+Si esas variables no estan configuradas, la portada y el menu muestran productos demo para evitar errores fatales, pero las acciones que guardan o consultan pedidos quedan deshabilitadas o muestran aviso de conexion.
+
 ## Ejecutar localmente
 
 Con PHP instalado:

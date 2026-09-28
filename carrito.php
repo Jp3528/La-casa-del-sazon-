@@ -173,7 +173,11 @@ if (isset($_POST['logout'])) {
         <h5 class="text-end">Total: <strong>S/. <?= number_format($total, 2) ?></strong></h5>
         <div class="text-end">
             <a href="?vaciar=1" class="btn btn-warning">Vaciar Carrito</a>
-            <a href="realizarpedido.php" class="btn btn-success">Pagar ahora</a>
+            <?php if (db_disponible()): ?>
+                <a href="realizarpedido.php" class="btn btn-success">Pagar ahora</a>
+            <?php else: ?>
+                <button class="btn btn-secondary" disabled title="<?= mensaje_db_no_disponible() ?>">Pago requiere base de datos</button>
+            <?php endif; ?>
         </div>
     <?php else: ?>
         <p class="text-center">🛍️ Tu carrito está vacío.</p>

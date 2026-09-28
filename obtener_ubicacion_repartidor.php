@@ -11,8 +11,8 @@ header('Content-Type: application/json');
 $response = ['success' => false, 'message' => ''];
 
 // Verifica si la conexión a la base de datos es exitosa
-if ($conn->connect_error) { 
-    $response['message'] = 'Error de conexión a la base de datos: ' . $conn->connect_error;
+if (!db_disponible()) {
+    $response['message'] = 'Error de conexión a la base de datos.';
     echo json_encode($response);
     exit();
 }
@@ -52,7 +52,9 @@ if (isset($_GET['repartidor_id'])) {
 }
 
 // Cierra la conexión a la base de datos
-$conn->close();
+if (db_disponible()) {
+    $conn->close();
+}
 
 echo json_encode($response);
 exit();

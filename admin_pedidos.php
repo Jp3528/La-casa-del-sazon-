@@ -14,6 +14,10 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 
 $mensaje = "";
 
+if (!db_disponible()) {
+    die("<div class='container mt-5 alert alert-danger'>Error: No se pudo conectar a la base de datos. Configura DB_HOST, DB_USER, DB_PASSWORD y DB_NAME en Vercel.</div>");
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     $pedido_id = intval($_POST['pedido_id']);
 
@@ -52,9 +56,6 @@ $pedidos_query = "
     ORDER BY p.fecha DESC
 ";
 
-if ($conn === null) {
-    die("<div class='container mt-5 alert alert-danger'>Error: No se pudo conectar a la base de datos. Por favor, verifica tu archivo 'conexion.php'.</div>");
-}
 $pedidos_result = $conn->query($pedidos_query);
 
 // Obtener repartidores para el select

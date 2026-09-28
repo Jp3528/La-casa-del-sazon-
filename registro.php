@@ -20,7 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password1 = $_POST["cliente_clave_1_reg"];
     $password2 = $_POST["cliente_clave_2_reg"];
 
-    if (
+    if (!db_disponible()) {
+        $mensaje = ['titulo' => 'Base de datos no disponible', 'texto' => 'El registro requiere una base de datos MySQL configurada.', 'tipo' => 'warning'];
+    } elseif (
         empty($tipo_documento) || empty($numero_documento) || empty($nombre) || empty($apellido) ||
         empty($telefono) || empty($provincia) || empty($ciudad) || empty($direccion) ||
         empty($correo) || empty($password1) || empty($password2)

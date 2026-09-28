@@ -133,10 +133,12 @@ if (isset($_POST['logout'])) {
 	<h3 class="text-center text-uppercase poppins-regular font-weight-bold">Platillos destacados</h3>
 	<div class="container-cards full-box">
 <?php
-$sql = "SELECT * FROM productos WHERE stock > 0 LIMIT 3";
-$resultado = $conn->query($sql);
-if ($resultado->num_rows > 0) {
-	while ($row = $resultado->fetch_assoc()) {
+$productos = obtener_productos(3);
+if (!db_disponible()) {
+	echo '<div class="alert alert-warning text-center mx-auto" style="max-width: 900px;">' . mensaje_db_no_disponible() . '</div>';
+}
+if (count($productos) > 0) {
+	foreach ($productos as $row) {
 		echo '<div class="card shadow-1-strong" style="height: 100%; min-height: 430px;">';
 		echo '  <img class="card-img-top" src="./assets/platillos/' . htmlspecialchars($row["imagen"]) . '" alt="' . htmlspecialchars($row["nombre"]) . '" style="height: 200px; object-fit: cover;">';
 		echo '  <div class="card-body text-center">';

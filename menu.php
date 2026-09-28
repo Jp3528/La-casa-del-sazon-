@@ -140,11 +140,16 @@ if (isset($_POST['logout'])) {
 	<!-- Productos -->
 	<div class="container-cards full-box" id="contenedor-productos">
 		<?php
-		$sql = "SELECT * FROM productos WHERE stock > 0";
-		$result = $conn->query($sql);
+		$productos = obtener_productos();
 
-		if ($result->num_rows > 0):
-			while ($row = $result->fetch_assoc()):
+		if (!db_disponible()):
+		?>
+			<div class="alert alert-warning text-center w-100"><?= mensaje_db_no_disponible() ?></div>
+		<?php
+		endif;
+
+		if (count($productos) > 0):
+			foreach ($productos as $row):
 		?>
 		<div class="card shadow-1-strong mb-4" data-nombre="<?= htmlspecialchars($row['nombre']) ?>">
 			<img class="card-img-top" src="./assets/platillos/<?= htmlspecialchars($row["imagen"]) ?>" alt="<?= htmlspecialchars($row["nombre"]) ?>">
@@ -162,7 +167,7 @@ if (isset($_POST['logout'])) {
 				</form>
 			</div>
 		</div>
-		<?php endwhile; else: ?>
+		<?php endforeach; else: ?>
 			<p class="text-center">No hay productos disponibles en este momento.</p>
 		<?php endif; ?>
 	</div>

@@ -7,6 +7,11 @@ if (!isset($_SESSION["cliente_id"])) {
     exit();
 }
 
+if (!db_disponible()) {
+    echo "<script>alert('El pago y registro de pedidos requiere una base de datos MySQL configurada.'); window.location='carrito.php';</script>";
+    exit();
+}
+
 $cliente_id = $_SESSION["cliente_id"];
 
 // Obtener dirección del cliente

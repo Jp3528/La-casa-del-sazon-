@@ -42,8 +42,8 @@ $pedidos_query = "
 ";
 
 // Usar prepared statement para la consulta principal de pedidos
-if ($conn === null) {
-    die("<div class='container mt-5 alert alert-danger'>Error: No se pudo conectar a la base de datos. Por favor, verifica tu archivo 'conexion.php'.</div>");
+if (!db_disponible()) {
+    die("<div class='container mt-5 alert alert-danger'>Error: No se pudo conectar a la base de datos. Configura DB_HOST, DB_USER, DB_PASSWORD y DB_NAME en Vercel.</div>");
 }
 $stmt_pedidos = $conn->prepare($pedidos_query);
 if ($stmt_pedidos === false) {

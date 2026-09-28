@@ -14,6 +14,11 @@ if (isset($_POST["cerrar_sesion"])) {
 
 // Iniciar sesión
 if (isset($_POST["login_email_cliente"], $_POST["login_clave_cliente"])) {
+    if (!db_disponible()) {
+        header("Location: $redirigir?login_error=1");
+        exit;
+    }
+
     $correo = $_POST["login_email_cliente"];
     $clave = $_POST["login_clave_cliente"];
 
