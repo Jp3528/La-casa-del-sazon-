@@ -6,7 +6,13 @@ $root = dirname(__DIR__);
 // Limpiar ruta
 $cleanUri = trim($uri, '/');
 
-if ($cleanUri === '' || $cleanUri === 'index' || $cleanUri === 'index.php') {
+if (
+    $cleanUri === '' ||
+    $cleanUri === 'index' ||
+    $cleanUri === 'index.php' ||
+    $cleanUri === 'api/index' ||
+    $cleanUri === 'api/index.php'
+) {
     require $root . '/index.php';
     exit;
 }
