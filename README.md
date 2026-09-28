@@ -1,6 +1,6 @@
 # La Casa del Sazon
 
-![Vista previa de La Casa del Sazon](docs/preview.jpg)
+![Vista previa de La Casa del Sazon](docs/preview.png)
 
 Sistema web PHP para restaurante con catalogo de platillos, registro e inicio de sesion de clientes, carrito, pedidos, panel de administracion y rastreo de repartidores.
 
