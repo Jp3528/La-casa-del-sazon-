@@ -99,6 +99,6 @@ function obtener_productos(?int $limite = null): array {
 }
 
 function mensaje_db_no_disponible(): string {
-    return "La base de datos no esta conectada. La vista publica se muestra con datos demo.";
+    return "Vista demo con platillos de muestra.";
 }
 ?>

@@ -131,12 +131,14 @@ if (isset($_POST['logout'])) {
 <!-- Productos -->
 <div class="container-fluid container-web-page">
 	<h3 class="text-center text-uppercase poppins-regular font-weight-bold">Platillos destacados</h3>
-	<div class="container-cards full-box">
 <?php
 $productos = obtener_productos(3);
 if (!db_disponible()) {
-	echo '<div class="alert alert-warning text-center mx-auto" style="max-width: 900px;">' . mensaje_db_no_disponible() . '</div>';
+	echo '<p class="demo-notice mx-auto"><i class="fas fa-info-circle"></i> ' . mensaje_db_no_disponible() . '</p>';
 }
+?>
+	<div class="container-cards full-box">
+<?php
 if (count($productos) > 0) {
 	foreach ($productos as $row) {
 		echo '<div class="card shadow-1-strong" style="height: 100%; min-height: 430px;">';

@@ -137,16 +137,14 @@ if (isset($_POST['logout'])) {
 		<i class="fas fa-search text-muted"></i>
 	</div>
 
+	<?php if (!db_disponible()): ?>
+		<p class="demo-notice mx-auto"><i class="fas fa-info-circle"></i> <?= mensaje_db_no_disponible() ?></p>
+	<?php endif; ?>
+
 	<!-- Productos -->
 	<div class="container-cards full-box" id="contenedor-productos">
 		<?php
 		$productos = obtener_productos();
-
-		if (!db_disponible()):
-		?>
-			<div class="alert alert-warning text-center w-100"><?= mensaje_db_no_disponible() ?></div>
-		<?php
-		endif;
 
 		if (count($productos) > 0):
 			foreach ($productos as $row):
